@@ -9,6 +9,7 @@ import argparse
 print("+++ Quote Scrape +++ ")
 
 URLS_JSON = "urls.json"
+OUTPUT_PATH = "quotes.json"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--url", help="The URL you wish to check")
@@ -31,7 +32,7 @@ def buildQuoteDict(filmName, quote):
 
 def outputToFile(quotesDictList):
     json_data = json.dumps(quotesDictList)
-    quoteFile = open("quotes.json", 'w')
+    quoteFile = open(OUTPUT_PATH, 'w')
     json.dump(quotesDictList, quoteFile)
     quoteFile.close()
 
