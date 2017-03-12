@@ -29,10 +29,6 @@ filmName = tree.xpath('//*[@id="main"]/div[1]/div[1]/div/h3/a/text()')[0]
 
 quotesList = tree.xpath('//*[@id="quotes_content"]/div[2]/div/div[@class="sodatext"]/p')
 
-#for each q in quotesList select the text in each a in each p (that has search name)
-
-#print(quotesList)
-
 
 def buildQuoteDict(name, quote):
     quoteDict = {}
@@ -55,6 +51,9 @@ for q in quotesList:
 
 json_data = json.dumps(quotesDictList)
 
+
+quoteFile = open("quotes.json", 'w')
+json.dump(quotesDictList, quoteFile)
 
 print(type(json_data))
 print(json_data)
