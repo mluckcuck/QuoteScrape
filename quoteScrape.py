@@ -36,6 +36,7 @@ def outputToFile(quotesDictList):
     quoteFile.close()
 
 def getQuotesFrom(url):
+    print("Getting Quotes")
     page = requests.get(url)
     tree = html.fromstring(page.content)
 
@@ -53,10 +54,8 @@ def getQuotesFrom(url):
             quotesDictList.append(buildQuoteDict(filmName, quote))
 
 if args.url:
-    print("Using Given URL")
     getQuotesFrom(urlArg)
 else:
-    print("using File")
     urls=open(URLS_JSON).read()
     urlList = json.loads(urls)
 
